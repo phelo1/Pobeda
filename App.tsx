@@ -196,7 +196,7 @@ function App() {
         <section className="relative h-[90vh] flex items-center overflow-hidden">
           <div 
             className="absolute inset-0 bg-cover bg-center transition-transform duration-[10s] hover:scale-105"
-            style={{ backgroundImage: 'url("/images/hero.jpg")' }}
+            style={{ backgroundImage: 'url("https://raw.githubusercontent.com/phelo1/Pobeda/refs/heads/main/images/hero.jpg")' }}
             role="img"
             aria-label="High-end construction site in Dubai"
           ></div>
@@ -251,7 +251,7 @@ function App() {
               <div className="relative">
                 <div className="aspect-[4/5] bg-gray-800 rounded-lg overflow-hidden shadow-2xl">
                   <img 
-                    src="/images/kinetic.jpg" 
+                    src="https://raw.githubusercontent.com/phelo1/Pobeda/refs/heads/main/images/kinetic.jpg" 
                     className="w-full h-full object-cover grayscale transition-all duration-500" 
                     alt="Close-up architectural detail of modern construction" 
                   />
