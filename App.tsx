@@ -196,7 +196,7 @@ function App() {
         <section className="relative h-[90vh] flex items-center overflow-hidden">
           <div 
             className="absolute inset-0 bg-cover bg-center transition-transform duration-[10s] hover:scale-105"
-            style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=2070&auto=format&fit=crop")' }}
+            style={{ backgroundImage: 'url("/images/hero.jpg")' }}
             role="img"
             aria-label="High-end construction site in Dubai"
           ></div>
@@ -251,9 +251,10 @@ function App() {
               <div className="relative">
                 <div className="aspect-[4/5] bg-gray-800 rounded-lg overflow-hidden shadow-2xl">
                   <img 
-                    src="https://images.unsplash.com/photo-1503387762-592dee58c460?q=80&w=1000&auto=format&fit=crop" 
+                    src="/images/kinetic.jpg" 
                     className="w-full h-full object-cover grayscale" 
                     alt="Close-up architectural detail of modern construction" 
+                    onError={(e) => { e.currentTarget.src = "https://images.unsplash.com/photo-1503387762-592dee58c460?q=80&w=1000&auto=format&fit=crop"; }}
                   />
                 </div>
                 <div className="absolute -bottom-10 -left-10 bg-pobeda-gold text-black p-10 hidden md:block rounded-lg shadow-xl">
@@ -278,7 +279,6 @@ function App() {
               {SERVICES_LIST[lang].map((service) => (
                 <article key={service.id} className="group p-10 bg-pobeda-gray border border-gray-900 hover:border-pobeda-gold transition-all duration-500 hover:-translate-y-2">
                   <div className="text-pobeda-gold mb-8 transform group-hover:scale-110 transition-transform inline-block" aria-hidden="true">
-                    {/* Fix: Added explicit generic type cast to allow 'size' property for Lucide icon components */}
                     {React.cloneElement(service.icon as React.ReactElement<any>, { size: 32 })}
                   </div>
                   <h3 className="text-2xl font-serif text-white mb-4">{service.title}</h3>
@@ -462,7 +462,7 @@ function App() {
         </div>
       </footer>
 
-      {/* Persistent CTA Buttons (Floating Desktop/Mobile) */}
+      {/* Persistent CTA Buttons */}
       <div className="fixed bottom-8 right-8 z-40 flex flex-col gap-4">
          <a 
           href={`https://wa.me/${CONTACT_INFO.whatsapp}`} 
