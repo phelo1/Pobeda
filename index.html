@@ -4,83 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
-    <!-- Primary Meta Tags -->
     <title>Pobeda LLC | Premium Construction & Refurbishment in Dubai</title>
-    <meta name="title" content="Pobeda LLC | Premium Construction & Refurbishment in Dubai">
-    <meta name="description" content="Pobeda LLC offers high-end construction, luxury villa building, and premium apartment refurbishments in Dubai. International expertise with local excellence.">
-    <meta name="keywords" content="construction dubai, refurbishment dubai, luxury villa construction, fit-out works dubai, apartment renovation dubai, Pobeda LLC">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://pobedallc.com/">
-
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://pobedallc.com/">
-    <meta property="og:title" content="Pobeda LLC | Construction & Refurbishment Dubai">
-    <meta property="og:description" content="Transforming visions into reality. Dubai's premier partner for high-end construction and refurbishment.">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=1200">
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://pobedallc.com/">
-    <meta property="twitter:title" content="Pobeda LLC | Construction & Refurbishment Dubai">
-    <meta property="twitter:description" content="Transforming visions into reality. Dubai's premier partner for high-end construction and refurbishment.">
-    <meta property="twitter:image" content="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=1200">
-
-    <!-- Google Analytics (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PRMW18SMMW"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-PRMW18SMMW');
-    </script>
-
-    <!-- Structured Data (JSON-LD) -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "Pobeda LLC",
-      "image": "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=1200",
-      "@id": "https://pobedallc.com/",
-      "url": "https://pobedallc.com/",
-      "telephone": "+971509392279",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Cayan Tower G floor office R06",
-        "addressLocality": "Dubai Marina",
-        "addressRegion": "Dubai",
-        "addressCountry": "AE"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 25.0874,
-        "longitude": 55.1438
-      },
-      "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday",
-          "Saturday"
-        ],
-        "opens": "09:00",
-        "closes": "18:00"
-      },
-      "sameAs": [
-        "https://www.instagram.com/pobeda_llc/"
-      ]
-    }
-    </script>
+    <meta name="description" content="Pobeda LLC offers high-end construction and luxury refurbishments in Dubai.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     <script>
       tailwind.config = {
-        darkMode: 'class',
         theme: {
           extend: {
             fontFamily: {
@@ -94,6 +27,15 @@
                 gray: '#1F1F1F',
                 light: '#F5F5F5'
               }
+            },
+            animation: {
+              'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+            },
+            keyframes: {
+              fadeInUp: {
+                'from': { opacity: '0', transform: 'translateY(20px)' },
+                'to': { opacity: '1', transform: 'translateY(0)' },
+              }
             }
           }
         }
@@ -104,33 +46,27 @@
         background-color: #050505;
         color: #F5F5F5;
         scroll-behavior: smooth;
+        margin: 0;
       }
-      .gold-gradient {
-        background: linear-gradient(135deg, #D4AF37 0%, #AA8A26 100%);
-      }
-      .text-gold-gradient {
-        background: linear-gradient(135deg, #D4AF37 0%, #FFE066 50%, #D4AF37 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
-      /* Improved accessibility for interactive elements */
-      button:focus-visible, a:focus-visible {
-        outline: 2px solid #D4AF37;
-        outline-offset: 2px;
-      }
+      ::-webkit-scrollbar { width: 8px; }
+      ::-webkit-scrollbar-track { background: #0A0A0A; }
+      ::-webkit-scrollbar-thumb { background: #D4AF37; border-radius: 4px; }
     </style>
   <script type="importmap">
 {
   "imports": {
-    "react/": "https://aistudiocdn.com/react@^19.2.1/",
-    "react": "https://aistudiocdn.com/react@^19.2.1",
-    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.556.0",
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/"
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+    "vite": "https://esm.sh/vite@^7.3.1",
+    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2"
   }
 }
 </script>
 </head>
   <body>
     <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
   </body>
 </html>

@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Language, CalculatorFormData } from '../types';
 import { CONTENT } from '../constants';
@@ -51,7 +52,8 @@ const CalculatorForm: React.FC<Props> = ({ lang, onClose }) => {
       <p className="text-gray-400 text-sm mb-4">{t.calcDesc}</p>
       
       <div>
-        <label className="block text-sm font-medium text-gray-400 mb-1">{t.sqmPlaceholder} *</label>
+        {/* Fix: replaced sqmPlaceholder with sizeLabel which exists in Translations type */}
+        <label className="block text-sm font-medium text-gray-400 mb-1">{t.sizeLabel} *</label>
         <input
           required
           type="number"
@@ -64,7 +66,8 @@ const CalculatorForm: React.FC<Props> = ({ lang, onClose }) => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
-          <label className="block text-sm font-medium text-gray-400 mb-1">{t.emailPlaceholder} *</label>
+          {/* Fix: replaced emailPlaceholder with emailLabel which exists in Translations type */}
+          <label className="block text-sm font-medium text-gray-400 mb-1">{t.emailLabel} *</label>
           <input
             required
             type="email"
@@ -74,7 +77,8 @@ const CalculatorForm: React.FC<Props> = ({ lang, onClose }) => {
           />
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-400 mb-1">{t.phonePlaceholder} *</label>
+          {/* Fix: replaced phonePlaceholder with phoneLabel which exists in Translations type */}
+          <label className="block text-sm font-medium text-gray-400 mb-1">{t.phoneLabel} *</label>
           <input
             required
             type="tel"

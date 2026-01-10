@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { 
   Phone, 
@@ -277,7 +278,8 @@ function App() {
               {SERVICES_LIST[lang].map((service) => (
                 <article key={service.id} className="group p-10 bg-pobeda-gray border border-gray-900 hover:border-pobeda-gold transition-all duration-500 hover:-translate-y-2">
                   <div className="text-pobeda-gold mb-8 transform group-hover:scale-110 transition-transform inline-block" aria-hidden="true">
-                    {React.cloneElement(service.icon as React.ReactElement, { size: 32 })}
+                    {/* Fix: Added explicit generic type cast to allow 'size' property for Lucide icon components */}
+                    {React.cloneElement(service.icon as React.ReactElement<any>, { size: 32 })}
                   </div>
                   <h3 className="text-2xl font-serif text-white mb-4">{service.title}</h3>
                   <p className="text-gray-500 leading-relaxed mb-8">{service.description}</p>
