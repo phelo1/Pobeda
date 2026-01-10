@@ -249,10 +249,11 @@ function App() {
                 </div>
               </div>
               <div className="relative">
+                {/* Standardized Aspect Ratio for local asset with high-quality crop simulation via object-cover */}
                 <div className="aspect-[4/5] bg-gray-800 rounded-lg overflow-hidden shadow-2xl">
                   <img 
                     src="/images/kinetic.jpg" 
-                    className="w-full h-full object-cover grayscale" 
+                    className="w-full h-full object-cover grayscale transition-all duration-500" 
                     alt="Close-up architectural detail of modern construction" 
                     onError={(e) => { e.currentTarget.src = "https://images.unsplash.com/photo-1503387762-592dee58c460?q=80&w=1000&auto=format&fit=crop"; }}
                   />
@@ -311,6 +312,7 @@ function App() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0">
               {PROJECTS_DATA.map((project) => (
                 <div key={project.id} className="group relative aspect-square overflow-hidden cursor-pointer">
+                  {/* Using object-cover to emulate exactly how Unsplash URLs cropped these images to fit aspect-square */}
                   <img 
                     src={project.image} 
                     alt={`Pobeda LLC Project: ${project.name}`} 
@@ -340,6 +342,7 @@ function App() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
               {TEAM_DATA[lang].map((member) => (
                 <div key={member.id} className="group">
+                  {/* standardized aspect ratio container with object-cover for perfect portraits */}
                   <div className="aspect-[3/4] bg-pobeda-gray overflow-hidden mb-6 rounded-lg grayscale group-hover:grayscale-0 transition-all duration-500">
                     <img src={member.image} alt={`Pobeda Team: ${member.name}`} className="w-full h-full object-cover group-hover:scale-105 transition-transform" />
                   </div>
@@ -359,12 +362,15 @@ function App() {
               <div className="w-full md:w-1/3 flex-shrink-0">
                 <div className="relative">
                   <div className="absolute -inset-4 border border-pobeda-gold rounded-2xl transform -rotate-3" aria-hidden="true"></div>
-                  <img 
-                    src={CEO_IMAGE}
-                    alt="Victoria Karaman, CEO of Pobeda LLC" 
-                    className="relative rounded-2xl shadow-2xl w-full object-cover aspect-[3/4]"
-                    onError={(e) => { e.currentTarget.src = "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=600"; }}
-                  />
+                  {/* aspect-[3/4] ensures standardized cropping for the CEO local portrait asset */}
+                  <div className="aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl">
+                    <img 
+                      src={CEO_IMAGE}
+                      alt="Victoria Karaman, CEO of Pobeda LLC" 
+                      className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                      onError={(e) => { e.currentTarget.src = "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=600"; }}
+                    />
+                  </div>
                 </div>
               </div>
               <div className="w-full md:w-2/3">
