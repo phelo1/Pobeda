@@ -3,7 +3,7 @@ import { Language, Project, Service, TeamMember, Translations } from './types';
 import { Ruler, Hammer, Home, PaintBucket, Building2, ShieldCheck, Users, Briefcase } from 'lucide-react';
 import React from 'react';
 
-const CEO_IMAGE = "/images/ceo.jpg";
+const CEO_IMAGE = "/images/ceo.webp";
 
 export const CONTACT_INFO = {
   phone: "+971 50 939 2279",

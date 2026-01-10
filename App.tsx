@@ -249,13 +249,11 @@ function App() {
                 </div>
               </div>
               <div className="relative">
-                {/* Standardized Aspect Ratio for local asset with high-quality crop simulation via object-cover */}
                 <div className="aspect-[4/5] bg-gray-800 rounded-lg overflow-hidden shadow-2xl">
                   <img 
                     src="/images/kinetic.jpg" 
                     className="w-full h-full object-cover grayscale transition-all duration-500" 
                     alt="Close-up architectural detail of modern construction" 
-                    onError={(e) => { e.currentTarget.src = "https://images.unsplash.com/photo-1503387762-592dee58c460?q=80&w=1000&auto=format&fit=crop"; }}
                   />
                 </div>
                 <div className="absolute -bottom-10 -left-10 bg-pobeda-gold text-black p-10 hidden md:block rounded-lg shadow-xl">
@@ -312,12 +310,10 @@ function App() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0">
               {PROJECTS_DATA.map((project) => (
                 <div key={project.id} className="group relative aspect-square overflow-hidden cursor-pointer">
-                  {/* Using object-cover to emulate exactly how Unsplash URLs cropped these images to fit aspect-square */}
                   <img 
                     src={project.image} 
                     alt={`Pobeda LLC Project: ${project.name}`} 
                     className="w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-110"
-                    onError={(e) => { e.currentTarget.src = "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=800"; }}
                   />
                   <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
                     <span className="text-pobeda-gold text-[10px] font-bold uppercase tracking-widest mb-2">{project.type}</span>
@@ -342,9 +338,12 @@ function App() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
               {TEAM_DATA[lang].map((member) => (
                 <div key={member.id} className="group">
-                  {/* standardized aspect ratio container with object-cover for perfect portraits */}
                   <div className="aspect-[3/4] bg-pobeda-gray overflow-hidden mb-6 rounded-lg grayscale group-hover:grayscale-0 transition-all duration-500">
-                    <img src={member.image} alt={`Pobeda Team: ${member.name}`} className="w-full h-full object-cover group-hover:scale-105 transition-transform" />
+                    <img 
+                      src={member.image} 
+                      alt={`Pobeda Team: ${member.name}`} 
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform" 
+                    />
                   </div>
                   <h4 className="text-2xl font-serif text-white mb-1">{member.name}</h4>
                   <p className="text-pobeda-gold text-xs font-bold uppercase tracking-widest mb-4">{member.role}</p>
@@ -362,13 +361,11 @@ function App() {
               <div className="w-full md:w-1/3 flex-shrink-0">
                 <div className="relative">
                   <div className="absolute -inset-4 border border-pobeda-gold rounded-2xl transform -rotate-3" aria-hidden="true"></div>
-                  {/* aspect-[3/4] ensures standardized cropping for the CEO local portrait asset */}
                   <div className="aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl">
                     <img 
                       src={CEO_IMAGE}
                       alt="Victoria Karaman, CEO of Pobeda LLC" 
                       className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
-                      onError={(e) => { e.currentTarget.src = "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=600"; }}
                     />
                   </div>
                 </div>
