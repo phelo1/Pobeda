@@ -382,7 +382,7 @@ function App() {
                 <span className="text-pobeda-gold font-bold tracking-[0.4em] text-xs uppercase mb-4 block">{t.ceo.subtitle}</span>
                 <h2 className="text-4xl font-serif text-white mb-8">{t.ceo.title}</h2>
                 <blockquote className="text-2xl text-gray-300 font-serif leading-relaxed italic border-l-4 border-pobeda-gold pl-8">
-                  "At Pobeda LLC, we don't just build structures; we craft legacies. Our commitment to excellence, punctuality, and refined aesthetics ensures that every square meter we touch transforms into a masterpiece of modern construction."
+                  "{t.ceo.quote}"
                 </blockquote>
               </div>
             </div>

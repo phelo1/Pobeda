@@ -85,6 +85,7 @@ export interface Translations {
   ceo: {
     title: string;
     subtitle: string;
+    quote: string;
   };
   contact: {
     title: string;

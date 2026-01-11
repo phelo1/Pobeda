@@ -100,7 +100,8 @@ export const CONTENT: Record<Language, Translations> = {
     },
     ceo: {
       title: "Victoria Karaman",
-      subtitle: "CEO & Visionary"
+      subtitle: "CEO & Visionary",
+      quote: "At Pobeda LLC, we don't just build structures; we craft legacies. Our commitment to excellence, punctuality, and refined aesthetics ensures that every square meter we touch transforms into a masterpiece of modern construction."
     },
     contact: {
       title: "GET IN TOUCH",
@@ -176,7 +177,8 @@ export const CONTENT: Record<Language, Translations> = {
     },
     ceo: {
       title: "Виктория Караман",
-      subtitle: "CEO и визионер"
+      subtitle: "CEO и визионер",
+      quote: "В Pobeda LLC мы не просто строим здания; мы создаем наследие. Наша приверженность совершенству, пунктуальности и утонченной эстетике гарантирует, что каждый квадратный метр, к которому мы прикасаемся, превращается в шедевр современного строительства."
     },
     contact: {
       title: "СВЯЖИТЕСЬ С НАМИ",
