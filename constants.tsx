@@ -28,7 +28,7 @@ export const TEAM_DATA: Record<Language, TeamMember[]> = {
     { id: 2, name: "Daniel Morris", role: "Senior Project Manager", description: "Manages projects from planning to delivery, coordinating teams, budgets, and timelines.", image: "https://raw.githubusercontent.com/phelo1/Pobeda/refs/heads/main/images/team2.webp" },
     { id: 3, name: "Elena Petrova", role: "Lead Architect", description: "Responsible for architectural solutions, technical planning, and Dubai regulation compliance.", image: "https://raw.githubusercontent.com/phelo1/Pobeda/refs/heads/main/images/team3.webp" },
     { id: 4, name: "Sophia Reynolds", role: "Interior Design Director", description: "Develops aesthetic and practical interior concepts, working closely with clients.", image: "https://raw.githubusercontent.com/phelo1/Pobeda/refs/heads/main/images/team4.webp" },
-    { id: 5, name: "Ahmed Al Mansouri", role: "Site Engineer", description: "Supervises on-site works, safety regulations, and technical standards.", image: "https://raw.githubusercontent.com/phelo1/Pobeda/refs/heads/main/images/team5.webp" },
+    { id: 5, name: "Dmitry Sokolov", role: "Site Engineer", description: "Supervises on-site works, safety regulations, and technical standards.", image: "https://raw.githubusercontent.com/phelo1/Pobeda/refs/heads/main/images/team5.webp" },
     { id: 6, name: "Michael Turner", role: "Construction Supervisor", description: "Responsible for daily site operations, workforce coordination, and quality control.", image: "https://raw.githubusercontent.com/phelo1/Pobeda/refs/heads/main/images/team6.webp" },
   ],
   ru: [
@@ -36,7 +36,7 @@ export const TEAM_DATA: Record<Language, TeamMember[]> = {
     { id: 2, name: "Даниэль Моррис", role: "Старший менеджер проектов", description: "Управляет проектами от планирования до сдачи, координируя бюджеты и сроки.", image: "https://raw.githubusercontent.com/phelo1/Pobeda/refs/heads/main/images/team2.webp" },
     { id: 3, name: "Елена Петрова", role: "Ведущий архитектор", description: "Отвечает за архитектурные решения и соблюдение норм Дубая.", image: "https://raw.githubusercontent.com/phelo1/Pobeda/refs/heads/main/images/team3.webp" },
     { id: 4, name: "София Рейнольдс", role: "Директор по дизайну интерьера", description: "Разрабатывает эстетичные и практичные концепции интерьера.", image: "https://raw.githubusercontent.com/phelo1/Pobeda/refs/heads/main/images/team4.webp" },
-    { id: 5, name: "Ахмед Аль Мансури", role: "Инженер объекта", description: "Контролирует работы на месте, соблюдение техники безопасности и стандартов.", image: "https://raw.githubusercontent.com/phelo1/Pobeda/refs/heads/main/images/team5.webp" },
+    { id: 5, name: "Дмитрий Соколов", role: "Инженер объекта", description: "Контролирует работы на месте, соблюдение техники безопасности и стандартов.", image: "https://raw.githubusercontent.com/phelo1/Pobeda/refs/heads/main/images/team5.webp" },
     { id: 6, name: "Майкл Тернер", role: "Прораб", description: "Отвечает за ежедневные операции на площадке и контроль качества.", image: "https://raw.githubusercontent.com/phelo1/Pobeda/refs/heads/main/images/team6.webp" },
   ]
 };
@@ -73,19 +73,26 @@ export const CONTENT: Record<Language, Translations> = {
     hero: {
       title: "Building Excellence in Dubai.",
       subtitle: "A unified team for premium design and construction execution.",
-      cta: "View Portfolio"
+      cta: "View Portfolio",
+      tagline: "PREMIUM CONSTRUCTION • DUBAI"
     },
     services: {
       title: "CORE SERVICES",
-      subtitle: "Comprehensive solutions for luxury living and commercial spaces."
+      subtitle: "Comprehensive solutions for luxury living and commercial spaces.",
+      explore: "Explore"
     },
     projects: {
-      title: "OUR WORK"
+      title: "OUR WORK",
+      subtitle: "Showcase of Mastery",
+      viewAll: "View All Works"
     },
     philosophy: {
       title: "OUR PHILOSOPHY",
+      heading: "Experience Meets Local Excellence",
       text: "Pobeda LLC represents a unique synergy of international construction expertise and deep Dubai market knowledge. We operate on a principle of total accountability.",
-      highlight: "Design and execution are handled by one unified team."
+      highlight: "Design and execution are handled by one unified team.",
+      commitment: "— Pobeda LLC Commitment",
+      expertise: "Years of Combined Expertise"
     },
     team: {
       title: "MEET THE TEAM",
@@ -101,7 +108,13 @@ export const CONTENT: Record<Language, Translations> = {
       phone: "Phone",
       email: "Email",
       hours: "Hours",
+      hoursText: "Mon - Sat 9:00 - 18:00",
       visitNotice: "Visit us at our Dubai Marina office."
+    },
+    footer: {
+      tagline: "Dubai's premier partner for high-end construction and refurbishment. Precision. Quality. Integrity.",
+      quickNav: "Quick Navigation",
+      serviceAreas: "Service Areas"
     },
     forms: {
       submit: "Submit Request",
@@ -136,19 +149,26 @@ export const CONTENT: Record<Language, Translations> = {
     hero: {
       title: "Строим Совершенство в Дубае.",
       subtitle: "Единая команда для премиального проектирования и реализации.",
-      cta: "Портфолио"
+      cta: "Портфолио",
+      tagline: "ПРЕМИАЛЬНОЕ СТРОИТЕЛЬСТВО • ДУБАЙ"
     },
     services: {
       title: "ОСНОВНЫЕ УСЛУГИ",
-      subtitle: "Комплексные решения для элитного жилья и коммерции."
+      subtitle: "Комплексные решения для элитного жилья и коммерции.",
+      explore: "Подробнее"
     },
     projects: {
-      title: "НАШИ РАБОТЫ"
+      title: "НАШИ РАБОТЫ",
+      subtitle: "Демонстрация Мастерства",
+      viewAll: "Все Проекты"
     },
     philosophy: {
       title: "НАША ФИЛОСОФИЯ",
+      heading: "Опыт Встречается с Местным Совершенством",
       text: "Pobeda LLC — это синергия международного опыта и знаний рынка недвижимости Дубая. Мы работаем по принципу полной ответственности.",
-      highlight: "Проектирование и реализация выполняются одной единой командой."
+      highlight: "Проектирование и реализация выполняются одной единой командой.",
+      commitment: "— Обязательство Pobeda LLC",
+      expertise: "Лет Совместного Опыта"
     },
     team: {
       title: "НАША КОМАНДА",
@@ -164,7 +184,13 @@ export const CONTENT: Record<Language, Translations> = {
       phone: "Телефон",
       email: "Email",
       hours: "График",
+      hoursText: "Пн - Сб 9:00 - 18:00",
       visitNotice: "Ждем вас в нашем офисе в Дубай Марина."
+    },
+    footer: {
+      tagline: "Ведущий партнер Дубая в области премиального строительства и ремонта. Точность. Качество. Честность.",
+      quickNav: "Быстрая Навигация",
+      serviceAreas: "Районы Обслуживания"
     },
     forms: {
       submit: "Отправить запрос",

@@ -72,7 +72,7 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 flex justify-between items-center">
           <div className="flex gap-6">
             <span className="flex items-center gap-2"><MapPin size={12} className="text-pobeda-gold" aria-hidden="true" /> {CONTACT_INFO.address}</span>
-            <span className="flex items-center gap-2"><Clock size={12} className="text-pobeda-gold" aria-hidden="true" /> Mon - Sat 9:00 - 18:00</span>
+            <span className="flex items-center gap-2"><Clock size={12} className="text-pobeda-gold" aria-hidden="true" /> {t.contact.hoursText}</span>
           </div>
           <div className="flex gap-6">
             <a href={`mailto:${CONTACT_INFO.email}`} className="flex items-center gap-2 hover:text-white transition-colors" aria-label={`Email us at ${CONTACT_INFO.email}`}><Mail size={12} className="text-pobeda-gold" aria-hidden="true" /> {CONTACT_INFO.email}</a>
@@ -124,7 +124,7 @@ function App() {
                 aria-label={lang === 'en' ? "Switch to Russian" : "Switch to English"}
               >
                 <Globe size={14} aria-hidden="true" />
-                <span>{lang.toUpperCase()}</span>
+                <span>{lang === 'en' ? 'RU' : 'EN'}</span>
               </button>
               
               <button 
@@ -184,7 +184,7 @@ function App() {
                 {t.nav.getQuote}
               </button>
               <button onClick={toggleLang} className="flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-gray-400">
-                <Globe size={16} aria-hidden="true" /> {lang === 'en' ? 'Switch to Russian' : 'Переключить на английский'}
+                <Globe size={16} aria-hidden="true" /> {lang === 'en' ? 'RU' : 'EN'}
               </button>
             </nav>
           </div>
@@ -204,7 +204,7 @@ function App() {
           
           <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full animate-fade-in-up">
             <div className="max-w-2xl">
-              <span className="text-pobeda-gold font-bold tracking-[0.4em] text-xs uppercase mb-4 block">PREMIUM CONSTRUCTION • DUBAI</span>
+              <span className="text-pobeda-gold font-bold tracking-[0.4em] text-xs uppercase mb-4 block">{t.hero.tagline}</span>
               <h1 className="text-5xl md:text-7xl font-serif font-bold text-white mb-6 leading-tight">
                 {t.hero.title}
               </h1>
@@ -238,14 +238,22 @@ function App() {
               <div>
                 <span className="text-pobeda-gold font-bold tracking-[0.4em] text-xs uppercase mb-4 block">{t.philosophy.title}</span>
                 <h2 className="text-3xl md:text-4xl font-serif text-white font-bold mb-8 leading-snug">
-                  Experience Meets Local <span className="text-pobeda-gold">Excellence</span>
+                  {(() => {
+                    const words = t.philosophy.heading.split(' ');
+                    const lastWord = words.pop();
+                    return (
+                      <>
+                        {words.join(' ')} <span className="text-pobeda-gold">{lastWord}</span>
+                      </>
+                    );
+                  })()}
                 </h2>
                 <p className="text-lg text-gray-400 mb-8 leading-relaxed">
                   {t.philosophy.text}
                 </p>
                 <div className="bg-pobeda-gray border-l-4 border-pobeda-gold p-8 rounded-r-lg">
                   <p className="text-xl text-white font-serif italic mb-2">"{t.philosophy.highlight}"</p>
-                  <p className="text-sm text-gray-500 uppercase tracking-widest font-bold">— Pobeda LLC Commitment</p>
+                  <p className="text-sm text-gray-500 uppercase tracking-widest font-bold">{t.philosophy.commitment}</p>
                 </div>
               </div>
               <div className="relative">
@@ -258,7 +266,7 @@ function App() {
                 </div>
                 <div className="absolute -bottom-10 -left-10 bg-pobeda-gold text-black p-10 hidden md:block rounded-lg shadow-xl">
                   <p className="text-4xl font-bold mb-1">15+</p>
-                  <p className="text-[10px] font-bold uppercase tracking-widest">Years of Combined Expertise</p>
+                  <p className="text-[10px] font-bold uppercase tracking-widest">{t.philosophy.expertise}</p>
                 </div>
               </div>
             </div>
@@ -286,7 +294,7 @@ function App() {
                     onClick={openQuote}
                     className="text-[10px] font-bold text-pobeda-gold uppercase tracking-[0.3em] flex items-center gap-2 hover:gap-4 transition-all"
                   >
-                    {lang === 'en' ? 'Explore' : 'Подробнее'} <ArrowRight size={12} aria-hidden="true" />
+                    {t.services.explore} <ArrowRight size={12} aria-hidden="true" />
                   </button>
                 </article>
               ))}
@@ -300,10 +308,10 @@ function App() {
             <div className="flex justify-between items-end mb-16">
               <div>
                 <span className="text-pobeda-gold font-bold tracking-[0.4em] text-xs uppercase mb-4 block">{t.projects.title}</span>
-                <h2 className="text-3xl md:text-5xl font-serif text-white font-bold">Showcase of Mastery</h2>
+                <h2 className="text-3xl md:text-5xl font-serif text-white font-bold">{t.projects.subtitle}</h2>
               </div>
               <button className="hidden md:block text-xs font-bold text-pobeda-gold uppercase tracking-widest border-b border-pobeda-gold pb-2 hover:text-white hover:border-white transition-colors">
-                View All Works
+                {t.projects.viewAll}
               </button>
             </div>
 
@@ -394,7 +402,7 @@ function App() {
                 className="max-h-16 h-auto w-auto mb-8 object-contain" 
               />
               <p className="text-gray-500 leading-relaxed mb-8">
-                Dubai's premier partner for high-end construction and refurbishment. Precision. Quality. Integrity.
+                {t.footer.tagline}
               </p>
               <div className="flex gap-4">
                 <a href={`https://wa.me/${CONTACT_INFO.whatsapp}`} target="_blank" rel="noreferrer" className="w-10 h-10 bg-green-600 rounded-full flex items-center justify-center hover:bg-green-500 transition-colors" aria-label="Chat with us on WhatsApp">
@@ -426,7 +434,7 @@ function App() {
 
             <div>
               <nav aria-label="Footer Navigation">
-                <h5 className="text-white font-bold text-xs uppercase tracking-widest mb-8">Quick Navigation</h5>
+                <h5 className="text-white font-bold text-xs uppercase tracking-widest mb-8">{t.footer.quickNav}</h5>
                 <ul className="space-y-4">
                    {['services', 'projects', 'about', 'team'].map((item) => (
                     <li key={item}>
@@ -445,7 +453,7 @@ function App() {
             </div>
 
             <div>
-              <h5 className="text-white font-bold text-xs uppercase tracking-widest mb-8">Service Areas</h5>
+              <h5 className="text-white font-bold text-xs uppercase tracking-widest mb-8">{t.footer.serviceAreas}</h5>
               <ul className="space-y-4 text-sm text-gray-500">
                 <li>Palm Jumeirah</li>
                 <li>Dubai Marina</li>

@@ -58,18 +58,25 @@ export interface Translations {
     title: string;
     subtitle: string;
     cta: string;
+    tagline: string;
   };
   services: {
     title: string;
     subtitle: string;
+    explore: string;
   };
   projects: {
     title: string;
+    subtitle: string;
+    viewAll: string;
   };
   philosophy: {
     title: string;
+    heading: string;
     text: string;
     highlight: string;
+    commitment: string;
+    expertise: string;
   };
   team: {
     title: string;
@@ -85,7 +92,13 @@ export interface Translations {
     phone: string;
     email: string;
     hours: string;
+    hoursText: string;
     visitNotice: string;
+  };
+  footer: {
+    tagline: string;
+    quickNav: string;
+    serviceAreas: string;
   };
   forms: {
     submit: string;
