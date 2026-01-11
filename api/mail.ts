@@ -1,4 +1,5 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
+import { Resend } from 'resend';
 
 // Type definitions (inline to avoid import issues)
 interface QuoteFormData {
@@ -20,99 +21,42 @@ interface CalculatorFormData {
 // Email configuration - set these in Vercel environment variables
 const RECIPIENT_EMAIL = process.env.RECIPIENT_EMAIL || 'info@pobedallc.com';
 const SENDER_EMAIL = process.env.SENDER_EMAIL || 'noreply@pobedallc.com';
+const RESEND_API_KEY = process.env.RESEND_API_KEY;
 
-// You can use various email services. This example uses a simple fetch-based approach
-// For production, consider using: Resend, SendGrid, Mailgun, or Nodemailer
+// Initialize Resend
+const resend = new Resend(RESEND_API_KEY);
 
 async function sendEmail(
   subject: string,
   htmlBody: string,
   textBody: string
 ): Promise<boolean> {
-  // Option 1: Using Resend (recommended for Vercel)
-  // Install: npm install resend
-  // Uncomment and configure:
-  /*
-  const { Resend } = require('resend');
-  const resend = new Resend(process.env.RESEND_API_KEY);
-  
+  // Validate that Resend API key is configured
+  if (!RESEND_API_KEY) {
+    console.error('RESEND_API_KEY environment variable is not set');
+    return false;
+  }
+
   try {
-    await resend.emails.send({
+    const { data, error } = await resend.emails.send({
       from: SENDER_EMAIL,
       to: RECIPIENT_EMAIL,
       subject: subject,
       html: htmlBody,
       text: textBody,
     });
+
+    if (error) {
+      console.error('Resend error:', error);
+      return false;
+    }
+
+    console.log('Email sent successfully via Resend:', data);
     return true;
   } catch (error) {
     console.error('Resend error:', error);
     return false;
   }
-  */
-
-  // Option 2: Using SendGrid
-  // Install: npm install @sendgrid/mail
-  // Uncomment and configure:
-  /*
-  const sgMail = require('@sendgrid/mail');
-  sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-  
-  try {
-    await sgMail.send({
-      to: RECIPIENT_EMAIL,
-      from: SENDER_EMAIL,
-      subject: subject,
-      text: textBody,
-      html: htmlBody,
-    });
-    return true;
-  } catch (error) {
-    console.error('SendGrid error:', error);
-    return false;
-  }
-  */
-
-  // Option 3: Using a custom SMTP service (via Nodemailer)
-  // Install: npm install nodemailer
-  // Uncomment and configure:
-  /*
-  const nodemailer = require('nodemailer');
-  const transporter = nodemailer.createTransport({
-    host: process.env.SMTP_HOST,
-    port: parseInt(process.env.SMTP_PORT || '587'),
-    secure: false,
-    auth: {
-      user: process.env.SMTP_USER,
-      pass: process.env.SMTP_PASSWORD,
-    },
-  });
-  
-  try {
-    await transporter.sendMail({
-      from: SENDER_EMAIL,
-      to: RECIPIENT_EMAIL,
-      subject: subject,
-      text: textBody,
-      html: htmlBody,
-    });
-    return true;
-  } catch (error) {
-    console.error('SMTP error:', error);
-    return false;
-  }
-  */
-
-  // Temporary: Log to console (for development/testing)
-  console.log('=== EMAIL WOULD BE SENT ===');
-  console.log('To:', RECIPIENT_EMAIL);
-  console.log('Subject:', subject);
-  console.log('Body:', textBody);
-  console.log('==========================');
-  
-  // Return true for now so the form submission appears successful
-  // Replace this with actual email sending implementation
-  return true;
 }
 
 function formatQuoteEmail(data: QuoteFormData, isVisitOnly: boolean): { subject: string; html: string; text: string } {
