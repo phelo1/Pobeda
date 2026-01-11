@@ -14,30 +14,30 @@ export const CONTACT_INFO = {
 };
 
 export const PROJECTS_DATA: Project[] = [
-  { id: 1, name: "Legend Flower Business Center", location: "Moscow", area: "1300m²", duration: "2.5 months", type: "Office", image: "https://raw.githubusercontent.com/phelo1/Pobeda/refs/heads/main/images/legend-flower.jpg" },
-  { id: 2, name: "Gazetny Mosbirzhа", location: "Business Club", area: "1250m²", duration: "2.5 months", type: "Business Club", image: "https://raw.githubusercontent.com/phelo1/Pobeda/refs/heads/main/images/gazetny.jpg" },
-  { id: 3, name: "Bank Financial Corporation", location: "Moscow", area: "6000m²", duration: "6 months", type: "Bank HQ", image: "https://raw.githubusercontent.com/phelo1/Pobeda/refs/heads/main/images/bank-financial.jpg" },
-  { id: 4, name: "Kinetic Residential Complex", location: "Moscow", area: "18,000m²", duration: "8 months", type: "Residential", image: "https://raw.githubusercontent.com/phelo1/Pobeda/refs/heads/main/images/kinetic.jpg" },
-  { id: 5, name: "Lucky Quarter", location: "Moscow", area: "8000m²", duration: "6 months", type: "Mixed Use", image: "https://raw.githubusercontent.com/phelo1/Pobeda/refs/heads/main/images/lucky.jpg" },
-  { id: 6, name: "Magnit Office", location: "Moscow", area: "1370m²", duration: "4 months", type: "Office", image: "https://raw.githubusercontent.com/phelo1/Pobeda/refs/heads/main/images/magnit.jpg" },
+  { id: 1, name: "Legend Flower Business Center", location: "Moscow", area: "1300m²", duration: "2.5 months", type: "Office", image: "https://raw.githubusercontent.com/phelo1/Pobeda/refs/heads/main/images/legend-flower.webp" },
+  { id: 2, name: "Gazetny Mosbirzhа", location: "Business Club", area: "1250m²", duration: "2.5 months", type: "Business Club", image: "https://raw.githubusercontent.com/phelo1/Pobeda/refs/heads/main/images/gazetny.webp" },
+  { id: 3, name: "Bank Financial Corporation", location: "Moscow", area: "6000m²", duration: "6 months", type: "Bank HQ", image: "https://raw.githubusercontent.com/phelo1/Pobeda/refs/heads/main/images/bank-financial.webp" },
+  { id: 4, name: "Kinetic Residential Complex", location: "Moscow", area: "18,000m²", duration: "8 months", type: "Residential", image: "https://raw.githubusercontent.com/phelo1/Pobeda/refs/heads/main/images/kinetic.webp" },
+  { id: 5, name: "Lucky Quarter", location: "Moscow", area: "8000m²", duration: "6 months", type: "Mixed Use", image: "https://raw.githubusercontent.com/phelo1/Pobeda/refs/heads/main/images/lucky.webp" },
+  { id: 6, name: "Magnit Office", location: "Moscow", area: "1370m²", duration: "4 months", type: "Office", image: "https://raw.githubusercontent.com/phelo1/Pobeda/refs/heads/main/images/magnit.webp" },
 ];
 
 export const TEAM_DATA: Record<Language, TeamMember[]> = {
   en: [
-    { id: 1, name: "Alexander Volkov", role: "Founder & Managing Director", description: "Leads with a focus on quality, deadlines, and client satisfaction. Oversees operations and strategy.", image: "https://raw.githubusercontent.com/phelo1/Pobeda/refs/heads/main/images/team1.jpg" },
-    { id: 2, name: "Daniel Morris", role: "Senior Project Manager", description: "Manages projects from planning to delivery, coordinating teams, budgets, and timelines.", image: "https://raw.githubusercontent.com/phelo1/Pobeda/refs/heads/main/images/team2.jpg" },
-    { id: 3, name: "Elena Petrova", role: "Lead Architect", description: "Responsible for architectural solutions, technical planning, and Dubai regulation compliance.", image: "https://raw.githubusercontent.com/phelo1/Pobeda/refs/heads/main/images/team3.jpg" },
-    { id: 4, name: "Sophia Reynolds", role: "Interior Design Director", description: "Develops aesthetic and practical interior concepts, working closely with clients.", image: "https://raw.githubusercontent.com/phelo1/Pobeda/refs/heads/main/images/team4.jpg" },
-    { id: 5, name: "Ahmed Al Mansouri", role: "Site Engineer", description: "Supervises on-site works, safety regulations, and technical standards.", image: "https://raw.githubusercontent.com/phelo1/Pobeda/refs/heads/main/images/team5.jpg" },
-    { id: 6, name: "Michael Turner", role: "Construction Supervisor", description: "Responsible for daily site operations, workforce coordination, and quality control.", image: "https://raw.githubusercontent.com/phelo1/Pobeda/refs/heads/main/images/team6.jpg" },
+    { id: 1, name: "Alexander Volkov", role: "Founder & Managing Director", description: "Leads with a focus on quality, deadlines, and client satisfaction. Oversees operations and strategy.", image: "https://raw.githubusercontent.com/phelo1/Pobeda/refs/heads/main/images/team1.webp" },
+    { id: 2, name: "Daniel Morris", role: "Senior Project Manager", description: "Manages projects from planning to delivery, coordinating teams, budgets, and timelines.", image: "https://raw.githubusercontent.com/phelo1/Pobeda/refs/heads/main/images/team2.webp" },
+    { id: 3, name: "Elena Petrova", role: "Lead Architect", description: "Responsible for architectural solutions, technical planning, and Dubai regulation compliance.", image: "https://raw.githubusercontent.com/phelo1/Pobeda/refs/heads/main/images/team3.webp" },
+    { id: 4, name: "Sophia Reynolds", role: "Interior Design Director", description: "Develops aesthetic and practical interior concepts, working closely with clients.", image: "https://raw.githubusercontent.com/phelo1/Pobeda/refs/heads/main/images/team4.webp" },
+    { id: 5, name: "Ahmed Al Mansouri", role: "Site Engineer", description: "Supervises on-site works, safety regulations, and technical standards.", image: "https://raw.githubusercontent.com/phelo1/Pobeda/refs/heads/main/images/team5.webp" },
+    { id: 6, name: "Michael Turner", role: "Construction Supervisor", description: "Responsible for daily site operations, workforce coordination, and quality control.", image: "https://raw.githubusercontent.com/phelo1/Pobeda/refs/heads/main/images/team6.webp" },
   ],
   ru: [
-    { id: 1, name: "Александр Волков", role: "Основатель и управляющий директор", description: "Руководит с акцентом на качество и сроки. Курирует операции и стратегию.", image: "https://raw.githubusercontent.com/phelo1/Pobeda/refs/heads/main/images/team1.jpg" },
-    { id: 2, name: "Даниэль Моррис", role: "Старший менеджер проектов", description: "Управляет проектами от планирования до сдачи, координируя бюджеты и сроки.", image: "https://raw.githubusercontent.com/phelo1/Pobeda/refs/heads/main/images/team2.jpg" },
-    { id: 3, name: "Елена Петрова", role: "Ведущий архитектор", description: "Отвечает за архитектурные решения и соблюдение норм Дубая.", image: "https://raw.githubusercontent.com/phelo1/Pobeda/refs/heads/main/images/team3.jpg" },
-    { id: 4, name: "София Рейнольдс", role: "Директор по дизайну интерьера", description: "Разрабатывает эстетичные и практичные концепции интерьера.", image: "https://raw.githubusercontent.com/phelo1/Pobeda/refs/heads/main/images/team4.jpg" },
-    { id: 5, name: "Ахмед Аль Мансури", role: "Инженер объекта", description: "Контролирует работы на месте, соблюдение техники безопасности и стандартов.", image: "https://raw.githubusercontent.com/phelo1/Pobeda/refs/heads/main/images/team5.jpg" },
-    { id: 6, name: "Майкл Тернер", role: "Прораб", description: "Отвечает за ежедневные операции на площадке и контроль качества.", image: "https://raw.githubusercontent.com/phelo1/Pobeda/refs/heads/main/images/team6.jpg" },
+    { id: 1, name: "Александр Волков", role: "Основатель и управляющий директор", description: "Руководит с акцентом на качество и сроки. Курирует операции и стратегию.", image: "https://raw.githubusercontent.com/phelo1/Pobeda/refs/heads/main/images/team1.webp" },
+    { id: 2, name: "Даниэль Моррис", role: "Старший менеджер проектов", description: "Управляет проектами от планирования до сдачи, координируя бюджеты и сроки.", image: "https://raw.githubusercontent.com/phelo1/Pobeda/refs/heads/main/images/team2.webp" },
+    { id: 3, name: "Елена Петрова", role: "Ведущий архитектор", description: "Отвечает за архитектурные решения и соблюдение норм Дубая.", image: "https://raw.githubusercontent.com/phelo1/Pobeda/refs/heads/main/images/team3.webp" },
+    { id: 4, name: "София Рейнольдс", role: "Директор по дизайну интерьера", description: "Разрабатывает эстетичные и практичные концепции интерьера.", image: "https://raw.githubusercontent.com/phelo1/Pobeda/refs/heads/main/images/team4.webp" },
+    { id: 5, name: "Ахмед Аль Мансури", role: "Инженер объекта", description: "Контролирует работы на месте, соблюдение техники безопасности и стандартов.", image: "https://raw.githubusercontent.com/phelo1/Pobeda/refs/heads/main/images/team5.webp" },
+    { id: 6, name: "Майкл Тернер", role: "Прораб", description: "Отвечает за ежедневные операции на площадке и контроль качества.", image: "https://raw.githubusercontent.com/phelo1/Pobeda/refs/heads/main/images/team6.webp" },
   ]
 };
 
