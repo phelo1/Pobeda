@@ -21,10 +21,17 @@ interface CalculatorFormData {
 // Email configuration - set these in Vercel environment variables
 const RECIPIENT_EMAIL = process.env.RECIPIENT_EMAIL || 'info@pobedallc.com';
 const SENDER_EMAIL = process.env.SENDER_EMAIL || 'noreply@pobedallc.com';
-const RESEND_API_KEY = process.env.RESEND_API_KEY;
 
-// Initialize Resend
-const resend = new Resend(RESEND_API_KEY);
+// Initialize Resend lazily - only when needed
+function getResendClient() {
+  const RESEND_API_KEY = process.env.RESEND_API_KEY;
+  
+  if (!RESEND_API_KEY) {
+    throw new Error('RESEND_API_KEY environment variable is not set');
+  }
+  
+  return new Resend(RESEND_API_KEY);
+}
 
 async function sendEmail(
   subject: string,
@@ -32,12 +39,16 @@ async function sendEmail(
   textBody: string
 ): Promise<boolean> {
   // Validate that Resend API key is configured
+  const RESEND_API_KEY = process.env.RESEND_API_KEY;
   if (!RESEND_API_KEY) {
     console.error('RESEND_API_KEY environment variable is not set');
     return false;
   }
 
   try {
+    // Initialize Resend client only when needed
+    const resend = getResendClient();
+    
     const { data, error } = await resend.emails.send({
       from: SENDER_EMAIL,
       to: RECIPIENT_EMAIL,
