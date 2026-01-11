@@ -2,7 +2,7 @@ import { QuoteFormData, CalculatorFormData } from '../types';
 
 export const sendQuoteRequest = async (data: QuoteFormData): Promise<boolean> => {
   try {
-    const response = await fetch('/mail.php', {
+    const response = await fetch('/api/mail', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -26,7 +26,7 @@ export const sendQuoteRequest = async (data: QuoteFormData): Promise<boolean> =>
 
 export const sendCalculationRequest = async (data: CalculatorFormData): Promise<boolean> => {
   try {
-    const response = await fetch('/mail.php', {
+    const response = await fetch('/api/mail', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
