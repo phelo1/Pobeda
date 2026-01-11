@@ -389,7 +389,7 @@ function App() {
             
             <div className="col-span-1 lg:col-span-1">
               <img 
-                src="/images/logo.png" 
+                src="https://raw.githubusercontent.com/phelo1/Pobeda/refs/heads/main/images/logo.png" 
                 alt="Pobeda LLC Logo" 
                 className="max-h-16 h-auto w-auto mb-8 object-contain" 
               />
