@@ -388,7 +388,11 @@ function App() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-20">
             
             <div className="col-span-1 lg:col-span-1">
-              <img src="/images/logo.png" alt="Pobeda LLC Logo" className="h-10 mb-8" />
+              <img 
+                src="/images/logo.png" 
+                alt="Pobeda LLC Logo" 
+                className="max-h-16 h-auto w-auto mb-8 object-contain" 
+              />
               <p className="text-gray-500 leading-relaxed mb-8">
                 Dubai's premier partner for high-end construction and refurbishment. Precision. Quality. Integrity.
               </p>
