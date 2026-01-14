@@ -316,7 +316,7 @@ function App() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0">
-              {PROJECTS_DATA.map((project) => (
+              {PROJECTS_DATA[lang].map((project) => (
                 <div key={project.id} className="group relative aspect-square overflow-hidden cursor-pointer">
                   <img 
                     src={project.image} 
@@ -326,7 +326,7 @@ function App() {
                   <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
                     <span className="text-pobeda-gold text-[10px] font-bold uppercase tracking-widest mb-2">{project.type}</span>
                     <h4 className="text-2xl font-serif text-white mb-2">{project.name}</h4>
-                    <p className="text-gray-400 text-sm">{project.location} • {project.area}</p>
+                    <p className="text-gray-400 text-sm">{project.location} • {project.area} • {project.duration}</p>
                   </div>
                 </div>
               ))}
