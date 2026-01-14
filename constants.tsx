@@ -14,12 +14,22 @@ export const CONTACT_INFO = {
 };
 
 export const PROJECTS_DATA: Project[] = [
-  { id: 1, name: "Legend Flower Business Center", location: "Moscow", area: "1300m²", duration: "2.5 months", type: "Office", image: "https://raw.githubusercontent.com/phelo1/Pobeda/refs/heads/main/images/legend-flower.webp" },
-  { id: 2, name: "Gazetny Mosbirzhа", location: "Business Club", area: "1250m²", duration: "2.5 months", type: "Business Club", image: "https://raw.githubusercontent.com/phelo1/Pobeda/refs/heads/main/images/gazetny.webp" },
-  { id: 3, name: "Bank Financial Corporation", location: "Moscow", area: "6000m²", duration: "6 months", type: "Bank HQ", image: "https://raw.githubusercontent.com/phelo1/Pobeda/refs/heads/main/images/bank-financial.webp" },
-  { id: 4, name: "Kinetic Residential Complex", location: "Moscow", area: "18,000m²", duration: "8 months", type: "Residential", image: "https://raw.githubusercontent.com/phelo1/Pobeda/refs/heads/main/images/kinetic.webp" },
-  { id: 5, name: "Lucky Quarter", location: "Moscow", area: "8000m²", duration: "6 months", type: "Mixed Use", image: "https://raw.githubusercontent.com/phelo1/Pobeda/refs/heads/main/images/lucky.webp" },
-  { id: 6, name: "Magnit Office", location: "Moscow", area: "1370m²", duration: "4 months", type: "Office", image: "https://raw.githubusercontent.com/phelo1/Pobeda/refs/heads/main/images/magnit.webp" },
+  { id: 1, name: "BC \"Legenda Tsvetnogo\"", location: "Moscow", area: "1300m²", duration: "2.5 months", type: "Office", image: "https://raw.githubusercontent.com/phelo1/Pobeda/refs/heads/main/images/legend-flower.webp" },
+  { id: 2, name: "Gazetny Mosbirzha", location: "Moscow", area: "1250m²", duration: "2.5 months", type: "Business Club", image: "https://raw.githubusercontent.com/phelo1/Pobeda/refs/heads/main/images/gazetny.webp" },
+  { id: 3, name: "Bank Otkritie", location: "Moscow", area: "6000m²", duration: "6 months", type: "Bank HQ", image: "https://raw.githubusercontent.com/phelo1/Pobeda/refs/heads/main/images/bank-financial.webp" },
+  { id: 4, name: "JK \"Kinetic\"", location: "Moscow", area: "18000m²", duration: "8 months", type: "Residential", image: "https://raw.githubusercontent.com/phelo1/Pobeda/refs/heads/main/images/kinetic.webp" },
+  { id: 5, name: "Lucky Quarter", location: "Moscow", area: "8000m²", duration: "6 months", type: "Residential", image: "https://raw.githubusercontent.com/phelo1/Pobeda/refs/heads/main/images/lucky.webp" },
+  { id: 6, name: "PAO \"Magnit\" Office", location: "Moscow", area: "1370m²", duration: "4 months", type: "Office", image: "https://raw.githubusercontent.com/phelo1/Pobeda/refs/heads/main/images/magnit.webp" },
+  { id: 7, name: "Bars Group Office", location: "Moscow", area: "880m²", duration: "5 months", type: "Office", image: "https://raw.githubusercontent.com/phelo1/Pobeda/refs/heads/main/images/bars-group.webp" },
+  { id: 8, name: "OMZ Perspective Tech", location: "Moscow", area: "815m²", duration: "3 months", type: "Office", image: "https://raw.githubusercontent.com/phelo1/Pobeda/refs/heads/main/images/omz-perspective.webp" },
+  { id: 9, name: "JK \"Liner\"", location: "Moscow", area: "12500m²", duration: "9 months", type: "Residential", image: "https://raw.githubusercontent.com/phelo1/Pobeda/refs/heads/main/images/jk-liner.webp" },
+  { id: 10, name: "BC \"Geolog\"", location: "Moscow", area: "6500m²", duration: "6 months", type: "Office", image: "https://raw.githubusercontent.com/phelo1/Pobeda/refs/heads/main/images/bc-geolog.webp" },
+  { id: 11, name: "JK \"Doro Mille\"", location: "Moscow", area: "3000m²", duration: "6 months", type: "Residential", image: "https://raw.githubusercontent.com/phelo1/Pobeda/refs/heads/main/images/jk-doro-mille.webp" },
+  { id: 12, name: "JK \"Armani\"", location: "Moscow", area: "2500m²", duration: "7 months", type: "Residential", image: "https://raw.githubusercontent.com/phelo1/Pobeda/refs/heads/main/images/jk-armani.webp" },
+  { id: 13, name: "Hide Clinic Moscow", location: "Moscow", area: "300m²", duration: "2 months", type: "Medical", image: "https://raw.githubusercontent.com/phelo1/Pobeda/refs/heads/main/images/hide-clinic-moscow.webp" },
+  { id: 14, name: "Private Apartment", location: "Moscow", area: "84m²", duration: "4 months", type: "Residential", image: "https://raw.githubusercontent.com/phelo1/Pobeda/refs/heads/main/images/private-apartment.webp" },
+  { id: 15, name: "Hide Clinic Dubai", location: "Dubai", area: "350m²", duration: "4 months", type: "Medical", image: "https://raw.githubusercontent.com/phelo1/Pobeda/refs/heads/main/images/hide-clinic-dubai.webp" },
+  { id: 16, name: "Retreat Center Dubai", location: "Dubai", area: "1500m²", duration: "6 months", type: "Wellness", image: "https://raw.githubusercontent.com/phelo1/Pobeda/refs/heads/main/images/retreat-center-dubai.webp" },
 ];
 
 export const TEAM_DATA: Record<Language, TeamMember[]> = {
