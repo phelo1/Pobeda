@@ -16,6 +16,7 @@ import { CONTENT, SERVICES_LIST, PROJECTS_DATA, TEAM_DATA, CONTACT_INFO, CEO_IMA
 import Modal from './components/Modal';
 import QuoteForm from './components/QuoteForm';
 import CalculatorForm from './components/CalculatorForm';
+import Portfolio from './components/Portfolio';
 
 function App() {
   const [lang, setLang] = useState<Language>('en');
@@ -23,6 +24,7 @@ function App() {
   const [quoteModalOpen, setQuoteModalOpen] = useState(false);
   const [visitModalOpen, setVisitModalOpen] = useState(false);
   const [calcModalOpen, setCalcModalOpen] = useState(false);
+  const [showPortfolio, setShowPortfolio] = useState(false);
 
   const t = CONTENT[lang];
 
@@ -63,10 +65,18 @@ function App() {
 
   const openQuote = () => setQuoteModalOpen(true);
   const openVisit = () => setVisitModalOpen(true);
+  const showPortfolioPage = () => {
+    setShowPortfolio(true);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+  const hidePortfolioPage = () => {
+    setShowPortfolio(false);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
-  return (
-    <div className="min-h-screen font-sans text-gray-200 bg-[#050505]">
-      
+  // Render Header Component (reusable)
+  const renderHeader = () => (
+    <>
       {/* TOP CONTACT BAR */}
       <div className="hidden lg:block bg-pobeda-gray py-2 border-b border-gray-900 text-[10px] font-bold uppercase tracking-widest text-gray-400">
         <div className="max-w-7xl mx-auto px-4 flex justify-between items-center">
@@ -88,7 +98,7 @@ function App() {
             {/* Logo */}
             <div 
               className="flex-shrink-0 flex items-center cursor-pointer" 
-              onClick={() => window.scrollTo({top:0, behavior:'smooth'})}
+              onClick={showPortfolio ? hidePortfolioPage : () => window.scrollTo({top:0, behavior:'smooth'})}
               role="button"
               aria-label="Home"
             >
@@ -108,7 +118,7 @@ function App() {
               {['services', 'projects', 'about', 'team', 'contact'].map((item) => (
                 <button
                   key={item}
-                  onClick={() => scrollToSection(item)}
+                  onClick={() => showPortfolio ? hidePortfolioPage() : scrollToSection(item)}
                   className="text-[11px] font-bold hover:text-pobeda-gold transition-colors uppercase tracking-[0.2em]"
                 >
                   {t.nav[item as keyof typeof t.nav]}
@@ -170,7 +180,10 @@ function App() {
               {['services', 'projects', 'about', 'team', 'contact'].map((item) => (
                 <button
                   key={item}
-                  onClick={() => scrollToSection(item)}
+                  onClick={() => {
+                    showPortfolio ? hidePortfolioPage() : scrollToSection(item);
+                    setMobileMenuOpen(false);
+                  }}
                   className="text-lg font-medium text-white hover:text-pobeda-gold uppercase tracking-widest text-left"
                 >
                   {t.nav[item as keyof typeof t.nav]}
@@ -190,6 +203,148 @@ function App() {
           </div>
         )}
       </header>
+    </>
+  );
+
+  // Render Footer Component (reusable)
+  const renderFooter = () => (
+    <footer id="contact" className="bg-[#050505] pt-24 pb-12 border-t border-gray-900">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-20">
+          
+          <div className="col-span-1 lg:col-span-1">
+            <img 
+              src="https://raw.githubusercontent.com/phelo1/Pobeda/refs/heads/main/images/logo.png" 
+              alt="Pobeda LLC Logo" 
+              className="max-h-16 h-auto w-auto mb-8 object-contain" 
+            />
+            <p className="text-gray-500 leading-relaxed mb-8">
+              {t.footer.tagline}
+            </p>
+            <div className="flex gap-4">
+              <a href={`https://wa.me/${CONTACT_INFO.whatsapp}`} target="_blank" rel="noreferrer" className="w-10 h-10 bg-green-600 rounded-full flex items-center justify-center hover:bg-green-500 transition-colors" aria-label="Chat with us on WhatsApp">
+                <MessageCircle size={20} className="text-white" aria-hidden="true" />
+              </a>
+              <a href={`mailto:${CONTACT_INFO.email}`} className="w-10 h-10 bg-pobeda-gray border border-gray-800 rounded-full flex items-center justify-center hover:border-pobeda-gold transition-colors" aria-label="Send us an Email">
+                <Mail size={18} className="text-pobeda-gold" aria-hidden="true" />
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <h5 className="text-white font-bold text-xs uppercase tracking-widest mb-8">{t.contact.title}</h5>
+            <ul className="space-y-6">
+              <li className="flex gap-4 text-sm">
+                <MapPin className="text-pobeda-gold flex-shrink-0" size={18} aria-hidden="true" />
+                <span className="text-gray-400">{CONTACT_INFO.address}</span>
+              </li>
+              <li className="flex gap-4 text-sm">
+                <Phone className="text-pobeda-gold flex-shrink-0" size={18} aria-hidden="true" />
+                <a href={`tel:${CONTACT_INFO.phoneRaw}`} className="text-gray-400 hover:text-white transition-colors">{CONTACT_INFO.phone}</a>
+              </li>
+              <li className="flex gap-4 text-sm">
+                <Mail className="text-pobeda-gold flex-shrink-0" size={18} aria-hidden="true" />
+                <a href={`mailto:${CONTACT_INFO.email}`} className="text-gray-400 hover:text-white transition-colors">{CONTACT_INFO.email}</a>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <nav aria-label="Footer Navigation">
+              <h5 className="text-white font-bold text-xs uppercase tracking-widest mb-8">{t.footer.quickNav}</h5>
+              <ul className="space-y-4">
+                 {['services', 'projects', 'about', 'team'].map((item) => (
+                  <li key={item}>
+                    <button onClick={() => showPortfolio ? hidePortfolioPage() : scrollToSection(item)} className="text-sm text-gray-500 hover:text-pobeda-gold transition-colors">
+                      {t.nav[item as keyof typeof t.nav]}
+                    </button>
+                  </li>
+                 ))}
+                 <li>
+                   <button onClick={openVisit} className="text-sm text-pobeda-gold font-bold">
+                     {t.nav.bookVisit}
+                   </button>
+                 </li>
+              </ul>
+            </nav>
+          </div>
+
+          <div>
+            <h5 className="text-white font-bold text-xs uppercase tracking-widest mb-8">{t.footer.serviceAreas}</h5>
+            <ul className="space-y-4 text-sm text-gray-500">
+              <li>Palm Jumeirah</li>
+              <li>Dubai Marina</li>
+              <li>Business Bay</li>
+              <li>Downtown Dubai</li>
+              <li>Emirates Hills</li>
+            </ul>
+          </div>
+
+        </div>
+
+        <div className="border-t border-gray-900 pt-12 flex flex-col md:flex-row justify-between items-center gap-6">
+          <p className="text-gray-600 text-[10px] uppercase tracking-widest font-bold">
+            &copy; {new Date().getFullYear()} Pobeda LLC. Premium Construction Dubai.
+          </p>
+          <div className="flex gap-8 text-[10px] uppercase tracking-widest font-bold text-gray-600">
+            <a href="#" className="hover:text-pobeda-gold transition-colors">Privacy Policy</a>
+            <a href="#" className="hover:text-pobeda-gold transition-colors">Terms of Service</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+
+  // If showing portfolio, render portfolio page with header and footer
+  if (showPortfolio) {
+    return (
+      <div className="min-h-screen font-sans text-gray-200 bg-[#050505]">
+        {renderHeader()}
+        <Portfolio lang={lang} onBack={hidePortfolioPage} />
+        {renderFooter()}
+        
+        {/* Persistent CTA Buttons */}
+        <div className="fixed bottom-8 right-8 z-40 flex flex-col gap-4">
+           <a 
+            href={`https://wa.me/${CONTACT_INFO.whatsapp}`} 
+            className="bg-green-600 text-white p-5 rounded-full shadow-2xl hover:scale-110 transition-transform animate-bounce"
+            aria-label="Contact us via WhatsApp"
+          >
+            <MessageCircle size={28} />
+          </a>
+        </div>
+
+        {/* MODALS */}
+        <Modal 
+          isOpen={quoteModalOpen} 
+          onClose={() => setQuoteModalOpen(false)} 
+          title={t.forms.quoteTitle}
+        >
+          <QuoteForm lang={lang} onClose={() => setQuoteModalOpen(false)} />
+        </Modal>
+
+        <Modal 
+          isOpen={visitModalOpen} 
+          onClose={() => setVisitModalOpen(false)} 
+          title={t.forms.visitTitle}
+        >
+          <QuoteForm lang={lang} onClose={() => setVisitModalOpen(false)} isVisitOnly={true} />
+        </Modal>
+
+        <Modal 
+          isOpen={calcModalOpen} 
+          onClose={() => setCalcModalOpen(false)} 
+          title={t.forms.calcTitle}
+        >
+          <CalculatorForm lang={lang} onClose={() => setCalcModalOpen(false)} />
+        </Modal>
+      </div>
+    );
+  }
+
+  return (
+    <div className="min-h-screen font-sans text-gray-200 bg-[#050505]">
+      {renderHeader()}
 
       <main>
         {/* HERO */}
@@ -310,14 +465,21 @@ function App() {
                 <span className="text-pobeda-gold font-bold tracking-[0.4em] text-xs uppercase mb-4 block">{t.projects.title}</span>
                 <h2 className="text-3xl md:text-5xl font-serif text-white font-bold">{t.projects.subtitle}</h2>
               </div>
-              <button className="hidden md:block text-xs font-bold text-pobeda-gold uppercase tracking-widest border-b border-pobeda-gold pb-2 hover:text-white hover:border-white transition-colors">
+              <button 
+                onClick={showPortfolioPage}
+                className="hidden md:block text-xs font-bold text-pobeda-gold uppercase tracking-widest border-b border-pobeda-gold pb-2 hover:text-white hover:border-white transition-colors"
+              >
                 {t.projects.viewAll}
               </button>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0">
               {PROJECTS_DATA[lang].map((project) => (
-                <div key={project.id} className="group relative aspect-square overflow-hidden cursor-pointer">
+                <div 
+                  key={project.id} 
+                  onClick={showPortfolioPage}
+                  className="group relative aspect-square overflow-hidden cursor-pointer"
+                >
                   <img 
                     src={project.image} 
                     alt={`Pobeda LLC Project: ${project.name}`} 
@@ -390,92 +552,7 @@ function App() {
         </section>
       </main>
 
-      {/* FOOTER / CONTACT */}
-      <footer id="contact" className="bg-[#050505] pt-24 pb-12 border-t border-gray-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-20">
-            
-            <div className="col-span-1 lg:col-span-1">
-              <img 
-                src="https://raw.githubusercontent.com/phelo1/Pobeda/refs/heads/main/images/logo.png" 
-                alt="Pobeda LLC Logo" 
-                className="max-h-16 h-auto w-auto mb-8 object-contain" 
-              />
-              <p className="text-gray-500 leading-relaxed mb-8">
-                {t.footer.tagline}
-              </p>
-              <div className="flex gap-4">
-                <a href={`https://wa.me/${CONTACT_INFO.whatsapp}`} target="_blank" rel="noreferrer" className="w-10 h-10 bg-green-600 rounded-full flex items-center justify-center hover:bg-green-500 transition-colors" aria-label="Chat with us on WhatsApp">
-                  <MessageCircle size={20} className="text-white" aria-hidden="true" />
-                </a>
-                <a href={`mailto:${CONTACT_INFO.email}`} className="w-10 h-10 bg-pobeda-gray border border-gray-800 rounded-full flex items-center justify-center hover:border-pobeda-gold transition-colors" aria-label="Send us an Email">
-                  <Mail size={18} className="text-pobeda-gold" aria-hidden="true" />
-                </a>
-              </div>
-            </div>
-
-            <div>
-              <h5 className="text-white font-bold text-xs uppercase tracking-widest mb-8">{t.contact.title}</h5>
-              <ul className="space-y-6">
-                <li className="flex gap-4 text-sm">
-                  <MapPin className="text-pobeda-gold flex-shrink-0" size={18} aria-hidden="true" />
-                  <span className="text-gray-400">{CONTACT_INFO.address}</span>
-                </li>
-                <li className="flex gap-4 text-sm">
-                  <Phone className="text-pobeda-gold flex-shrink-0" size={18} aria-hidden="true" />
-                  <a href={`tel:${CONTACT_INFO.phoneRaw}`} className="text-gray-400 hover:text-white transition-colors">{CONTACT_INFO.phone}</a>
-                </li>
-                <li className="flex gap-4 text-sm">
-                  <Mail className="text-pobeda-gold flex-shrink-0" size={18} aria-hidden="true" />
-                  <a href={`mailto:${CONTACT_INFO.email}`} className="text-gray-400 hover:text-white transition-colors">{CONTACT_INFO.email}</a>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <nav aria-label="Footer Navigation">
-                <h5 className="text-white font-bold text-xs uppercase tracking-widest mb-8">{t.footer.quickNav}</h5>
-                <ul className="space-y-4">
-                   {['services', 'projects', 'about', 'team'].map((item) => (
-                    <li key={item}>
-                      <button onClick={() => scrollToSection(item)} className="text-sm text-gray-500 hover:text-pobeda-gold transition-colors">
-                        {t.nav[item as keyof typeof t.nav]}
-                      </button>
-                    </li>
-                   ))}
-                   <li>
-                     <button onClick={openVisit} className="text-sm text-pobeda-gold font-bold">
-                       {t.nav.bookVisit}
-                     </button>
-                   </li>
-                </ul>
-              </nav>
-            </div>
-
-            <div>
-              <h5 className="text-white font-bold text-xs uppercase tracking-widest mb-8">{t.footer.serviceAreas}</h5>
-              <ul className="space-y-4 text-sm text-gray-500">
-                <li>Palm Jumeirah</li>
-                <li>Dubai Marina</li>
-                <li>Business Bay</li>
-                <li>Downtown Dubai</li>
-                <li>Emirates Hills</li>
-              </ul>
-            </div>
-
-          </div>
-
-          <div className="border-t border-gray-900 pt-12 flex flex-col md:flex-row justify-between items-center gap-6">
-            <p className="text-gray-600 text-[10px] uppercase tracking-widest font-bold">
-              &copy; {new Date().getFullYear()} Pobeda LLC. Premium Construction Dubai.
-            </p>
-            <div className="flex gap-8 text-[10px] uppercase tracking-widest font-bold text-gray-600">
-              <a href="#" className="hover:text-pobeda-gold transition-colors">Privacy Policy</a>
-              <a href="#" className="hover:text-pobeda-gold transition-colors">Terms of Service</a>
-            </div>
-          </div>
-        </div>
-      </footer>
+      {renderFooter()}
 
       {/* Persistent CTA Buttons */}
       <div className="fixed bottom-8 right-8 z-40 flex flex-col gap-4">

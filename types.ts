@@ -70,6 +70,13 @@ export interface Translations {
     subtitle: string;
     viewAll: string;
   };
+  portfolio: {
+    title: string;
+    workTypes: string;
+    duration: string;
+    area: string;
+    backToHome: string;
+  };
   philosophy: {
     title: string;
     heading: string;

@@ -52,6 +52,71 @@ export const PROJECTS_DATA: Record<Language, Project[]> = {
   ]
 };
 
+// Helper function to get all images for a project
+export const getProjectImages = (projectId: number): string[] => {
+  const imageMap: Record<number, string[]> = {
+    1: ['BC_Legenda_Tsvetnogo_img_1', 'BC_Legenda_Tsvetnogo_img_2', 'BC_Legenda_Tsvetnogo_img_3', 'BC_Legenda_Tsvetnogo_img_4', 'BC_Legenda_Tsvetnogo_img_5', 'BC_Legenda_Tsvetnogo_img_6'],
+    2: ['Gazetny_Mosbirzha_img_1', 'Gazetny_Mosbirzha_img_2', 'Gazetny_Mosbirzha_img_3', 'Gazetny_Mosbirzha_img_4', 'Gazetny_Mosbirzha_img_5'],
+    3: ['Bank_Otkritie_img_1', 'Bank_Otkritie_img_2', 'Bank_Otkritie_img_3', 'Bank_Otkritie_img_4'],
+    4: ['JK_Kinetic_img_1', 'JK_Kinetic_img_2', 'JK_Kinetic_img_3', 'JK_Kinetic_img_4', 'JK_Kinetic_img_5'],
+    5: ['Lucky_Quarter_img_1', 'Lucky_Quarter_img_2', 'Lucky_Quarter_img_3', 'Lucky_Quarter_img_4', 'Lucky_Quarter_img_5'],
+    6: ['PAO_Magnit_img_1', 'PAO_Magnit_img_2', 'PAO_Magnit_img_3', 'PAO_Magnit_img_4'],
+    7: ['Bars_Group_img_1', 'Bars_Group_img_2', 'Bars_Group_img_3', 'Bars_Group_img_4', 'Bars_Group_img_5'],
+    8: ['OMZ_Perspective_1_img_1', 'OMZ_Perspective_1_img_2', 'OMZ_Perspective_1_img_3', 'OMZ_Perspective_1_img_4', 'OMZ_Perspective_2_img_1', 'OMZ_Perspective_2_img_2', 'OMZ_Perspective_2_img_3', 'OMZ_Perspective_2_img_4'],
+    9: ['JK_Liner_img_1', 'JK_Liner_img_2', 'JK_Liner_img_3'],
+    10: ['BC_Geolog_img_1', 'BC_Geolog_img_2', 'BC_Geolog_img_3'],
+    11: ['JK_Doro_Mille_img_1', 'JK_Doro_Mille_img_2', 'JK_Doro_Mille_img_3'],
+    12: ['JK_Armani_img_1', 'JK_Armani_img_2', 'JK_Armani_img_3', 'JK_Armani_img_4', 'JK_Armani_img_5'],
+    13: ['Hide_Clinic_Moscow_img_1', 'Hide_Clinic_Moscow_img_2', 'Hide_Clinic_Moscow_img_3'],
+    14: ['Apartment_Private_img_1', 'Apartment_Private_img_2', 'Apartment_Private_img_3', 'Apartment_Private_img_4'],
+    15: ['Hide_Clinic_Dubai_img_1', 'Hide_Clinic_Dubai_img_3', 'Hide_Clinic_Dubai_img_4'],
+    16: ['Retreat_Center_Dubai_img_1', 'Retreat_Center_Dubai_img_2', 'Retreat_Center_Dubai_img_3', 'Retreat_Center_Dubai_img_4'],
+  };
+  
+  const baseUrl = 'https://raw.githubusercontent.com/phelo1/Pobeda/refs/heads/main/images/';
+  return (imageMap[projectId] || []).map(img => `${baseUrl}${img}.webp`);
+};
+
+// Project work descriptions
+export const PROJECT_WORK_DESCRIPTIONS: Record<Language, Record<number, string>> = {
+  en: {
+    1: "Complex CMP, Fit-out",
+    2: "Complex CMP, Fit-out",
+    3: "Complex CMP, Fit-out",
+    4: "CMP (Apartments, Common Areas, Parking)",
+    5: "Finishing (Common Areas, Parking)",
+    6: "CMP, Fit-out, Engineering",
+    7: "Design, CMP, Fit-out, VIP",
+    8: "CMP, Fit-out, Engineering",
+    9: "CMP, Fit-out, Furniture",
+    10: "Finishing (Parking, Common Areas)",
+    11: "Complex CMP (Common Areas)",
+    12: "Complex CMP (Common Areas)",
+    13: "Fit-out, Engineering",
+    14: "CMP, Fit-out, Custom Furniture",
+    15: "Fit-out, Engineering",
+    16: "CMP, Fit-out, Engineering",
+  },
+  ru: {
+    1: "Комплекс СМР, Fit-out",
+    2: "Комплекс СМР, Fit-out",
+    3: "Комплекс СМР, Fit-out",
+    4: "Комплекс СМР в квартирах, общих зонах и паркинге",
+    5: "Отделочные работы в общих зонах и паркинге",
+    6: "Комплекс СМР fit out, с устройством всех инженерных сетей",
+    7: "Design, комплекс СМР, fit out, инженерные системы, мебель VIP zone",
+    8: "Комплекс СМР fit out с устройством всех инженерных сетей",
+    9: "Комплекс СМР, fit out, мебель",
+    10: "Отделочные работы в паркинге и общих зонах",
+    11: "Комплекс СМР в общих зонах",
+    12: "Комплекс СМР в общих зонах",
+    13: "Fit-out с монтажом всех инженерных систем",
+    14: "Комплекс СМР fit out, комплектация мебелью индивидуального производства",
+    15: "Fit-out с монтажом всех инженерных систем",
+    16: "Комплекс СМР fit out с устройством всех инженерных сетей",
+  }
+};
+
 export const TEAM_DATA: Record<Language, TeamMember[]> = {
   en: [
     { id: 1, name: "Alexander Volkov", role: "Founder & Managing Director", description: "Leads with a focus on quality, deadlines, and client satisfaction. Oversees operations and strategy.", image: "https://raw.githubusercontent.com/phelo1/Pobeda/refs/heads/main/images/team1.webp" },
@@ -115,6 +180,13 @@ export const CONTENT: Record<Language, Translations> = {
       title: "OUR WORK",
       subtitle: "Showcase of Mastery",
       viewAll: "View All Works"
+    },
+    portfolio: {
+      title: "REALIZED PROJECTS",
+      workTypes: "Work Types",
+      duration: "Duration",
+      area: "Area",
+      backToHome: "Back to Home"
     },
     philosophy: {
       title: "OUR PHILOSOPHY",
@@ -192,6 +264,13 @@ export const CONTENT: Record<Language, Translations> = {
       title: "НАШИ РАБОТЫ",
       subtitle: "Демонстрация Мастерства",
       viewAll: "Все Проекты"
+    },
+    portfolio: {
+      title: "РЕАЛИЗОВАННЫЕ ПРОЕКТЫ",
+      workTypes: "Виды работ",
+      duration: "Срок выполнения",
+      area: "Площадь",
+      backToHome: "На главную"
     },
     philosophy: {
       title: "НАША ФИЛОСОФИЯ",
