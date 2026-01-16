@@ -6,9 +6,9 @@ import React from 'react';
 const CEO_IMAGE = "https://raw.githubusercontent.com/phelo1/Pobeda/refs/heads/main/images/ceo.webp";
 
 export const CONTACT_INFO = {
-  phone: "+971 50 939 2279",
-  phoneRaw: "971509392279",
-  whatsapp: "971509392279",
+  phone: "+971 50 120 0511",
+  phoneRaw: "971501200511",
+  whatsapp: "971501200511",
   email: "info@pobedallc.com",
   address: "Cayan Tower G floor office R06, Dubai Marina, UAE"
 };
